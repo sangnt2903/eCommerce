@@ -12631,11 +12631,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\project\\Ecommerce\\final\\eCommerceProject_v1\\eCommerceProject_v1\\eCommerceProject_v1.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\Desktop\\ecommerce\\eCommerceProject_v1\\eCommerceProject_v1\\eCommerceProject_v1.csproj",
       "projectName": "eCommerceProject_v1",
-      "projectPath": "D:\\project\\Ecommerce\\final\\eCommerceProject_v1\\eCommerceProject_v1\\eCommerceProject_v1.csproj",
+      "projectPath": "C:\\Users\\ADMIN\\Desktop\\ecommerce\\eCommerceProject_v1\\eCommerceProject_v1\\eCommerceProject_v1.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\project\\Ecommerce\\final\\eCommerceProject_v1\\eCommerceProject_v1\\obj\\",
+      "outputPath": "C:\\Users\\ADMIN\\Desktop\\ecommerce\\eCommerceProject_v1\\eCommerceProject_v1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
