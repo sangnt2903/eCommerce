@@ -24,7 +24,7 @@ namespace eCommerceProject_v1.Models
         public virtual DbSet<LogSystem> LogSystem { get; set; }
         public virtual DbSet<NguoiDung> NguoiDung { get; set; }
         public virtual DbSet<QuanTriVien> QuanTriVien { get; set; }
-        public virtual DbSet<TrangThaiTt> TrangThaiTt { get; set; }
+        public virtual DbSet<Trangthaitt> Trangthaitt { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -67,6 +67,11 @@ namespace eCommerceProject_v1.Models
                 entity.Property(e => e.Noidung)
                     .HasColumnName("NOIDUNG")
                     .HasMaxLength(100);
+
+                entity.HasOne(d => d.MahhNavigation)
+                    .WithMany(p => p.BinhLuanHh)
+                    .HasForeignKey(d => d.Mahh)
+                    .HasConstraintName("FK_BinhLuanHH_HangHoa");
             });
 
             modelBuilder.Entity<ChiTietHd>(entity =>
@@ -93,6 +98,12 @@ namespace eCommerceProject_v1.Models
                 entity.Property(e => e.Soluong).HasColumnName("SOLUONG");
 
                 entity.Property(e => e.Tongtien).HasColumnName("TONGTIEN");
+
+                entity.HasOne(d => d.MahhNavigation)
+                    .WithMany(p => p.ChiTietHd)
+                    .HasForeignKey(d => d.Mahh)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ChiTietHD_HangHoa");
             });
 
             modelBuilder.Entity<DangkiNcc>(entity =>
@@ -131,6 +142,11 @@ namespace eCommerceProject_v1.Models
                 entity.Property(e => e.TenNcc)
                     .HasColumnName("TEN_NCC")
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.EmailNavigation)
+                    .WithMany(p => p.DangkiNcc)
+                    .HasForeignKey(d => d.Email)
+                    .HasConstraintName("FK_DangkiNCC_NguoiDung1");
             });
 
             modelBuilder.Entity<HangHoa>(entity =>
@@ -158,7 +174,7 @@ namespace eCommerceProject_v1.Models
 
                 entity.Property(e => e.Mancc)
                     .HasColumnName("MANCC")
-                    .HasMaxLength(50)
+                    .HasMaxLength(12)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Mota)
@@ -172,6 +188,16 @@ namespace eCommerceProject_v1.Models
                     .HasMaxLength(100);
 
                 entity.Property(e => e.TrangthaiHd).HasColumnName("TRANGTHAI_HD");
+
+                entity.HasOne(d => d.MaloaiNavigation)
+                    .WithMany(p => p.HangHoa)
+                    .HasForeignKey(d => d.Maloai)
+                    .HasConstraintName("FK_HangHoa_LoaiHangHoa");
+
+                entity.HasOne(d => d.ManccNavigation)
+                    .WithMany(p => p.HangHoa)
+                    .HasForeignKey(d => d.Mancc)
+                    .HasConstraintName("FK_HangHoa_DangkiNCC");
             });
 
             modelBuilder.Entity<HoaDonBh>(entity =>
@@ -206,8 +232,7 @@ namespace eCommerceProject_v1.Models
 
                 entity.Property(e => e.Nguoimua)
                     .HasColumnName("NGUOIMUA")
-                    .HasMaxLength(12)
-                    .IsUnicode(false);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Phivanchuyen).HasColumnName("PHIVANCHUYEN");
 
@@ -219,6 +244,21 @@ namespace eCommerceProject_v1.Models
                 entity.Property(e => e.Tongtien).HasColumnName("TONGTIEN");
 
                 entity.Property(e => e.TrangthaiXuly).HasColumnName("TRANGTHAI_XULY");
+
+                entity.HasOne(d => d.LoaithanhtoanNavigation)
+                    .WithMany(p => p.HoaDonBh)
+                    .HasForeignKey(d => d.Loaithanhtoan)
+                    .HasConstraintName("FK_HoaDonBH_TRANGTHAITT");
+
+                entity.HasOne(d => d.NguoibanNavigation)
+                    .WithMany(p => p.HoaDonBh)
+                    .HasForeignKey(d => d.Nguoiban)
+                    .HasConstraintName("FK_HoaDonBH_DangkiNCC");
+
+                entity.HasOne(d => d.NguoimuaNavigation)
+                    .WithMany(p => p.HoaDonBh)
+                    .HasForeignKey(d => d.Nguoimua)
+                    .HasConstraintName("FK_HoaDonBH_NguoiDung");
             });
 
             modelBuilder.Entity<LoaiHangHoa>(entity =>
@@ -304,6 +344,8 @@ namespace eCommerceProject_v1.Models
                     .HasColumnName("SDT")
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Trangthaihd).HasColumnName("TRANGTHAIHD");
             });
 
             modelBuilder.Entity<QuanTriVien>(entity =>
@@ -330,22 +372,23 @@ namespace eCommerceProject_v1.Models
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<TrangThaiTt>(entity =>
+            modelBuilder.Entity<Trangthaitt>(entity =>
             {
                 entity.HasKey(e => e.Maloaitt);
 
-                entity.ToTable("TrangThai_TT");
+                entity.ToTable("TRANGTHAITT");
 
                 entity.Property(e => e.Maloaitt)
                     .HasColumnName("MALOAITT")
-                    .HasMaxLength(4)
+                    .HasMaxLength(12)
+                    .IsUnicode(false)
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.Tenloai)
-                    .HasColumnName("TENLOAI")
+                entity.Property(e => e.Tenloaitt)
+                    .HasColumnName("TENLOAITT")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Trangthai).HasColumnName("TRANGTHAI");
+                entity.Property(e => e.Trangthaihd).HasColumnName("TRANGTHAIHD");
             });
         }
     }

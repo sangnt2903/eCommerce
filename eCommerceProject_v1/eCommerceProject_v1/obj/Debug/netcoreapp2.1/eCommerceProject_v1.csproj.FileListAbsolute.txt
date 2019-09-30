@@ -68,3 +68,5 @@ C:\Users\ADMIN\Desktop\ecommerce\eCommerceProject_v1\eCommerceProject_v1\obj\Deb
 C:\Users\ADMIN\Desktop\ecommerce\eCommerceProject_v1\eCommerceProject_v1\obj\Debug\netcoreapp2.1\eCommerceProject_v1.dll
 C:\Users\ADMIN\Desktop\ecommerce\eCommerceProject_v1\eCommerceProject_v1\obj\Debug\netcoreapp2.1\eCommerceProject_v1.pdb
 C:\Users\ADMIN\Desktop\ecommerce\eCommerceProject_v1\eCommerceProject_v1\obj\Debug\netcoreapp2.1\eCommerceProject_v1.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\ecommerce\eCommerceProject_v1\eCommerceProject_v1\obj\Debug\netcoreapp2.1\Razor\Views\HangHoa\Index.cshtml.g.cs
+C:\Users\ADMIN\Desktop\ecommerce\eCommerceProject_v1\eCommerceProject_v1\obj\Debug\netcoreapp2.1\Razor\Views\NguoiDung\Index.cshtml.g.cs

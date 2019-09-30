@@ -16,5 +16,9 @@ namespace eCommerceProject_v1.Models
         public double? Tongtien { get; set; }
         public string Loaithanhtoan { get; set; }
         public bool? TrangthaiXuly { get; set; }
+
+        public Trangthaitt LoaithanhtoanNavigation { get; set; }
+        public DangkiNcc NguoibanNavigation { get; set; }
+        public NguoiDung NguoimuaNavigation { get; set; }
     }
 }

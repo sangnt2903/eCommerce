@@ -29,16 +29,15 @@ namespace eCommerceProject_v1
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<QLBH_v2019Context>(option => option.UseSqlServer(Configuration.GetConnectionString("QLBH_v2019")));
+            services.AddDbContext<QLBH_v2019Context>(option => option.UseSqlServer(Configuration.GetConnectionString("W2W")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromHours(48);
             });
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

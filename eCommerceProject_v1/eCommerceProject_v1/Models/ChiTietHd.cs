@@ -12,5 +12,7 @@ namespace eCommerceProject_v1.Models
         public double? Dongia { get; set; }
         public double? Giamgia { get; set; }
         public double? Tongtien { get; set; }
+
+        public HangHoa MahhNavigation { get; set; }
     }
 }

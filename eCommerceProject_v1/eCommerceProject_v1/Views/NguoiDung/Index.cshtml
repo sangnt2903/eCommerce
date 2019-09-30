@@ -1,0 +1,29 @@
+﻿
+@model eCommerceProject_v1.Models.ModelViewLogin
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = "~/Views/Shared/_frontEnd.cshtml";
+}
+
+
+<!-- login -->
+    <div class="container">
+        <div class="row" style="background-color:sandybrown">
+            <div class="form-group" style="margin:auto">
+                <form method="post" asp-controller="NguoiDung" asp-action="Login">
+                    <h3 class="mb-3">Đăng nhập</h3>
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                    <input class="form-control mb-3" asp-for="Email" type="email" placeholder="Tên đăng nhập" required>
+                    <input class="form-control mb-3" asp-for="Password" type="password" placeholder="Mật khẩu" required>
+                    <div class="clearfix"></div>
+                    <div class="forgot">
+                        <a asp-controller="ForgetPassword" asp-action="Index">Quên mật khẩu</a>
+                    </div>
+                    <input type="submit" class="btn btn-light" value="Đăng nhập">
+                    <h4 class="animated wow slideInUp" data-wow-delay=".5s">Dành cho người mới</h4>
+                    <p class="animated wow slideInUp" data-wow-delay=".5s"><a asp-controller="Register" asp-action="Create">Đăng kí tại đây</a> (Hoặc) trở về <a asp-controller="Home" asp-action="Index">Trang chủ<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- //login -->

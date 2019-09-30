@@ -12,5 +12,7 @@ namespace eCommerceProject_v1.Models
         public string Hinh { get; set; }
         public DateTime? Ngaydang { get; set; }
         public double? Diemdanhgia { get; set; }
+
+        public HangHoa MahhNavigation { get; set; }
     }
 }
